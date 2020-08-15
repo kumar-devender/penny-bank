@@ -1,0 +1,23 @@
+#macro( defaultValue $param $defaultValue ) #if ( $param && $param != '' ) $param #else $defaultValue #end #end
+
+#if(!$basePath)
+  #set($basePath="loanapplication/templates")
+#end
+
+{
+  "from": #defaultValue($from 0),
+  "size": #defaultValue($size 10),
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "bool": {
+            "must": [
+              #parse("${basePath}/filters/allFilters.vm")
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

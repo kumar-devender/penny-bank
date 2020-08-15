@@ -1,0 +1,34 @@
+########################
+## RangeFilter
+########################
+#macro(RangeFilter $key $range $filtersSeparator)
+  #if ($range
+        && (($range.from && (!$range.from.length() || $range.from.length() > 0))
+            || $range.to && (!$range.to.length() || $range.to.length() > 0)))
+  $filtersSeparator
+  {
+    "range": {
+      "$key": {
+        #set ($rangeSeparator = "")
+        #if ($range.from && (!$range.from.length() || $range.from.length() > 0))
+            "gte": #PrintValue($range.from)
+            #set ($rangeSeparator = ",")
+        #end
+        #if ($range.to && (!$range.to.length() || $range.to.length() > 0))
+           $rangeSeparator
+          "lte": #PrintValue($range.to)
+        #end
+      }
+    }
+  }
+  #set ($filtersSeparator = ",")
+  #end
+#end
+
+#macro(PrintValue $item)
+  #if($item.class.name == "java.lang.String")
+    "$item"
+  #else
+    $item
+  #end
+#end

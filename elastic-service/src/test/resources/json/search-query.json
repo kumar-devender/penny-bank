@@ -1,0 +1,29 @@
+{
+  "from": 0,
+  "size": 10,
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "bool": {
+            "must": [
+              {
+                "term": {
+                  "status": "CREATED"
+                }
+              },
+              {
+                "range": {
+                  "amount": {
+                    "gte": 250,
+                    "lte": 600
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

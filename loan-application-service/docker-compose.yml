@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+  # message broker
+  activemq:
+    image: webcenter/activemq:latest
+    container_name: activemq
+    ports:
+      - 8161:8161
+      - 61616:61616
+      - 61613:61613
+#    networks:
+#      - app
+    environment:
+      ACTIVEMQ_NAME: amq
+      ACTIVEMQ_REMOVE_DEFAULT_ACCOUNT: 'True'
+      ACTIVEMQ_ADMIN_LOGIN: admin
+      ACTIVEMQ_ADMIN_PASSWORD: admin
+  # APP*****************************************
+#  appcontainer:
+#    build:
+#      context: .
+#      args:
+#        JAR_FILE: /loan-application-service-1.0.0-SNAPSHOT.jar
+#    ports:
+#      - 9380:9380
+#    networks:
+#      - app
+#    depends_on:
+#      - activemq
+#    links:
+#      - activemq
+#networks:
+#  app:

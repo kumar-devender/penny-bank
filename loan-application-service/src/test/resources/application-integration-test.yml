@@ -1,0 +1,10 @@
+eureka:
+  client:
+    enabled: false
+
+customer-service:
+  ribbon:
+    listOfServers: http://localhost:8080
+spring:
+  activemq:
+    broker-url: vm://localhost?broker.persistent=false

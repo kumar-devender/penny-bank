@@ -1,0 +1,62 @@
+server:
+  port: ${PORT:9380}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${DISCOVERY_URL:http://${DISCOVERY_HOST:localhost}:${DISCOVERY_PORT:8761}/eureka/}
+#    enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    health:
+      show-details: always
+
+jms:
+  redeliveryPolicy:
+    maximumRedeliveries: 1
+
+spring:
+  application:
+    name: loan-application-service
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  datasource:
+    url: jdbc:h2:file:${user.home}/.h2/pennybank_loan_application_store
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    database: h2
+    generate-ddl: false
+    hibernate:
+      ddl-auto: validate
+
+    properties:
+      hibernate.dialect: org.hibernate.dialect.H2Dialect
+      hibernate.format-sql: true
+    show-sql: true
+
+  flyway:
+    baseline-on-migrate: true
+    enabled: true
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    url: ${spring.datasource.url}
+    schemas:
+      - PUBLIC
+
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: admin
+    password: admin
+
+## Ribbon clients config ##
+#customer-service:
+#  ribbon:
+#    listOfServers: http://localhost:9280

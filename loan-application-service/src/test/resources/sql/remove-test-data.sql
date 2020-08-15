@@ -1,0 +1,1 @@
+TRUNCATE TABLE pennybank_loan_application_store.loan_application;

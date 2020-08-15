@@ -1,0 +1,28 @@
+server:
+   port: ${PORT:9080}
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${DISCOVERY_URL:http://${DISCOVERY_HOST:localhost}:${DISCOVERY_PORT:8761}/eureka/}
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: customer-service
+        uri: lb://customer-service
+        predicates:
+        - Path=/api/customers/**
+      - id: loan-application-service
+        uri: lb://loan-application-service
+        predicates:
+        - Path=/api/loanapplications/**
+      - id: elastic-service
+        uri: lb://elastic-service
+        predicates:
+          - Path=/api/search/**

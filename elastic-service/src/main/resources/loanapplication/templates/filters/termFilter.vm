@@ -1,0 +1,17 @@
+########################
+## TermFilter
+########################
+#macro(TermFilter $key $value $filtersSeparator)
+  #if ("$!value" != "")
+    $filtersSeparator
+  {
+    "term": {
+      #if($value.class.name == "java.lang.String")
+        "$key": "$value"
+      #else
+        "$key": $value
+      #end
+    } ## term
+  } #set($filtersSeparator = ",")
+  #end
+#end

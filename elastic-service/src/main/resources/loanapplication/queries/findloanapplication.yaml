@@ -1,0 +1,5 @@
+name: findLoanApplications
+index: loan_application
+type: _search
+catalogue: loanapplication
+templateFile: loanapplication/templates/findLoanApplications.vm

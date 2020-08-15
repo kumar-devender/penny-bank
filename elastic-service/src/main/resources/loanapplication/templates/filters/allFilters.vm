@@ -1,0 +1,13 @@
+#parse("${basePath}/filters/termFilter.vm")
+#parse("${basePath}/filters/rangeFilter.vm")
+
+############################
+## PrintFiltersArray
+############################
+#macro(PrintFiltersArray)
+    #set($filtersSeparator = "")
+    #TermFilter("status" $status $filtersSeparator)
+    #RangeFilter("amount", $amount $filtersSeparator)
+#end
+
+#PrintFiltersArray()

@@ -1,0 +1,70 @@
+{
+  "took": 27,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 5,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 3,
+      "relation": "eq"
+    },
+    "max_score": 1.0,
+    "hits": [
+      {
+        "_index": "loan_application",
+        "_type": "loanapplication",
+        "_id": "11",
+        "_score": 1.0,
+        "_source": {
+          "id": 11,
+          "userId": "2",
+          "duration": 6,
+          "amount": 500,
+          "firstName": "Devender",
+          "lastName": "kumar",
+          "email": "devender@gmail.com",
+          "phone": "5483445343",
+          "status": "CREATED"
+        }
+      },
+      {
+        "_index": "loan_application",
+        "_type": "loanapplication",
+        "_id": "13",
+        "_score": 1.0,
+        "_source": {
+          "id": 13,
+          "userId": "2",
+          "duration": 6,
+          "amount": 500,
+          "firstName": "Devender",
+          "lastName": "kumar",
+          "email": "devender@gmail.com",
+          "phone": "5483445343",
+          "status": "CREATED"
+        }
+      },
+      {
+        "_index": "loan_application",
+        "_type": "loanapplication",
+        "_id": "12",
+        "_score": 1.0,
+        "_source": {
+          "id": 12,
+          "userId": "2",
+          "duration": 6,
+          "amount": 500,
+          "firstName": "Devender",
+          "lastName": "kumar",
+          "email": "devender@gmail.com",
+          "phone": "5483445343",
+          "status": "CREATED"
+        }
+      }
+    ]
+  }
+}

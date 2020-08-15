@@ -1,0 +1,16 @@
+eureka:
+  client:
+    enabled: false
+
+search:
+  ribbon:
+    listOfServers: http://localhost:9292
+
+elasticsearch:
+  port: 9200
+  host: 127.0.0.1
+  cluster-name: loan_application
+
+pannybank:
+  search:
+    queryFilesLocation: classpath*:**/queries/*.yaml
